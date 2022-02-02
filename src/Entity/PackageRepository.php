@@ -253,7 +253,7 @@ class PackageRepository extends ServiceEntityRepository
     }
 
     /**
-     * @return list<string>
+     * @return list<int>
      */
     public function getStalePackagesForDumping(): array
     {

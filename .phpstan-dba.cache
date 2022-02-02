@@ -1,0 +1,3159 @@
+<?php return array (
+  'schemaVersion' => 'v3-rename-props',
+  'records' => 
+  array (
+    '
+                SELECT p.id
+                FROM package p
+                LEFT JOIN download d ON (d.id = p.id AND d.type = 1)
+                WHERE (replacementPackage != "spam/spam" OR replacementPackage IS NULL)
+                AND (d.total > 1000 OR d.lastUpdated > \'1\')
+                ORDER BY p.id ASC
+            ' => 
+    array (
+      'error' => NULL,
+      'result' => 
+      array (
+        5 => NULL,
+      ),
+    ),
+    '
+            SELECT p.id
+            FROM package p
+            LEFT JOIN download d ON (d.id = p.id AND d.type = 1)
+            WHERE (p.dumpedAt IS NULL OR (p.dumpedAt <= p.crawledAt AND p.crawledAt < NOW()))
+            AND (d.total > 1000 OR d.lastUpdated > \'1\')
+            ORDER BY p.crawledAt ASC
+        ' => 
+    array (
+      'error' => NULL,
+      'result' => 
+      array (
+        5 => NULL,
+      ),
+    ),
+    '
+            SELECT p.id
+            FROM package p
+            LEFT JOIN download d ON (d.id = p.id AND d.type = 1)
+            WHERE p.id = \'1\'
+            AND (d.total > 1000 OR d.lastUpdated > \'1\')
+        ' => 
+    array (
+      'error' => NULL,
+      'result' => 
+      array (
+        5 => NULL,
+      ),
+    ),
+    '
+            SELECT v.normalizedVersion, d.data
+            FROM package_version v
+            INNER JOIN download d ON d.id=v.id AND d.type = \'2\'
+            WHERE v.package_id = \'1\' AND v.development = 0 AND v.normalizedVersion LIKE \'1\'
+        ' => 
+    array (
+      'error' => NULL,
+      'result' => 
+      array (
+        5 => 
+        PHPStan\Type\Constant\ConstantArrayType::__set_state(array(
+           'allArrays' => NULL,
+           'keyTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'normalizedVersion',
+               'isClassString' => false,
+            )),
+            1 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 0,
+            )),
+            2 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'data',
+               'isClassString' => false,
+            )),
+            3 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 1,
+            )),
+          ),
+           'valueTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+            1 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+            2 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+            3 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+          ),
+           'nextAutoIndex' => 2,
+           'optionalKeys' => 
+          array (
+          ),
+           'keyType' => 
+          PHPStan\Type\UnionType::__set_state(array(
+             'types' => 
+            array (
+              0 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 0,
+              )),
+              1 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 1,
+              )),
+              2 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'data',
+                 'isClassString' => false,
+              )),
+              3 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'normalizedVersion',
+                 'isClassString' => false,
+              )),
+            ),
+          )),
+           'itemType' => 
+          PHPStan\Type\StringType::__set_state(array(
+          )),
+        )),
+      ),
+    ),
+    '
+            SELECT v.normalizedVersion, d.data
+            FROM package_version v
+            INNER JOIN download d ON d.id=v.id AND d.type = \'2\'
+            WHERE v.package_id = \'1\' AND v.development = 0 AND v.normalizedVersion REGEXP "^[0-9]+"
+        ' => 
+    array (
+      'error' => NULL,
+      'result' => 
+      array (
+        5 => 
+        PHPStan\Type\Constant\ConstantArrayType::__set_state(array(
+           'allArrays' => NULL,
+           'keyTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'normalizedVersion',
+               'isClassString' => false,
+            )),
+            1 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 0,
+            )),
+            2 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'data',
+               'isClassString' => false,
+            )),
+            3 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 1,
+            )),
+          ),
+           'valueTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+            1 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+            2 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+            3 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+          ),
+           'nextAutoIndex' => 2,
+           'optionalKeys' => 
+          array (
+          ),
+           'keyType' => 
+          PHPStan\Type\UnionType::__set_state(array(
+             'types' => 
+            array (
+              0 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 0,
+              )),
+              1 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 1,
+              )),
+              2 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'data',
+                 'isClassString' => false,
+              )),
+              3 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'normalizedVersion',
+                 'isClassString' => false,
+              )),
+            ),
+          )),
+           'itemType' => 
+          PHPStan\Type\StringType::__set_state(array(
+          )),
+        )),
+      ),
+    ),
+    'SELECT COUNT(*) count FROM `package_version` GROUP BY 1=1' => 
+    array (
+      'error' => NULL,
+      'result' => 
+      array (
+        5 => 
+        PHPStan\Type\Constant\ConstantArrayType::__set_state(array(
+           'allArrays' => NULL,
+           'keyTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'count',
+               'isClassString' => false,
+            )),
+            1 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 0,
+            )),
+          ),
+           'valueTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\IntegerType::__set_state(array(
+            )),
+            1 => 
+            PHPStan\Type\IntegerType::__set_state(array(
+            )),
+          ),
+           'nextAutoIndex' => 1,
+           'optionalKeys' => 
+          array (
+          ),
+           'keyType' => 
+          PHPStan\Type\UnionType::__set_state(array(
+             'types' => 
+            array (
+              0 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 0,
+              )),
+              1 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'count',
+                 'isClassString' => false,
+              )),
+            ),
+          )),
+           'itemType' => 
+          PHPStan\Type\IntegerType::__set_state(array(
+          )),
+        )),
+      ),
+    ),
+    'SELECT COUNT(*) count FROM `package` GROUP BY 1=1' => 
+    array (
+      'error' => NULL,
+      'result' => 
+      array (
+        5 => 
+        PHPStan\Type\Constant\ConstantArrayType::__set_state(array(
+           'allArrays' => NULL,
+           'keyTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'count',
+               'isClassString' => false,
+            )),
+            1 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 0,
+            )),
+          ),
+           'valueTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\IntegerType::__set_state(array(
+            )),
+            1 => 
+            PHPStan\Type\IntegerType::__set_state(array(
+            )),
+          ),
+           'nextAutoIndex' => 1,
+           'optionalKeys' => 
+          array (
+          ),
+           'keyType' => 
+          PHPStan\Type\UnionType::__set_state(array(
+             'types' => 
+            array (
+              0 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 0,
+              )),
+              1 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'count',
+                 'isClassString' => false,
+              )),
+            ),
+          )),
+           'itemType' => 
+          PHPStan\Type\IntegerType::__set_state(array(
+          )),
+        )),
+      ),
+    ),
+    'SELECT COUNT(*) count FROM dependent WHERE packageName = \'1\'' => 
+    array (
+      'error' => NULL,
+      'result' => 
+      array (
+        5 => 
+        PHPStan\Type\Constant\ConstantArrayType::__set_state(array(
+           'allArrays' => NULL,
+           'keyTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'count',
+               'isClassString' => false,
+            )),
+            1 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 0,
+            )),
+          ),
+           'valueTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\IntegerType::__set_state(array(
+            )),
+            1 => 
+            PHPStan\Type\IntegerType::__set_state(array(
+            )),
+          ),
+           'nextAutoIndex' => 1,
+           'optionalKeys' => 
+          array (
+          ),
+           'keyType' => 
+          PHPStan\Type\UnionType::__set_state(array(
+             'types' => 
+            array (
+              0 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 0,
+              )),
+              1 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'count',
+                 'isClassString' => false,
+              )),
+            ),
+          )),
+           'itemType' => 
+          PHPStan\Type\IntegerType::__set_state(array(
+          )),
+        )),
+      ),
+    ),
+    'SELECT COUNT(*) count FROM dependent WHERE packageName = \'1\' AND type = \'1\'' => 
+    array (
+      'error' => NULL,
+    ),
+    'SELECT COUNT(*) count FROM suggester WHERE packageName = \'1\'' => 
+    array (
+      'error' => NULL,
+      'result' => 
+      array (
+        5 => 
+        PHPStan\Type\Constant\ConstantArrayType::__set_state(array(
+           'allArrays' => NULL,
+           'keyTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'count',
+               'isClassString' => false,
+            )),
+            1 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 0,
+            )),
+          ),
+           'valueTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\IntegerType::__set_state(array(
+            )),
+            1 => 
+            PHPStan\Type\IntegerType::__set_state(array(
+            )),
+          ),
+           'nextAutoIndex' => 1,
+           'optionalKeys' => 
+          array (
+          ),
+           'keyType' => 
+          PHPStan\Type\UnionType::__set_state(array(
+             'types' => 
+            array (
+              0 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 0,
+              )),
+              1 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'count',
+                 'isClassString' => false,
+              )),
+            ),
+          )),
+           'itemType' => 
+          PHPStan\Type\IntegerType::__set_state(array(
+          )),
+        )),
+      ),
+    ),
+    'SELECT COUNT(*) count, YEAR(createdAt) year, MONTH(createdAt) month FROM `package` GROUP BY year, month' => 
+    array (
+      'error' => NULL,
+      'result' => 
+      array (
+        5 => 
+        PHPStan\Type\Constant\ConstantArrayType::__set_state(array(
+           'allArrays' => NULL,
+           'keyTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'count',
+               'isClassString' => false,
+            )),
+            1 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 0,
+            )),
+            2 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'year',
+               'isClassString' => false,
+            )),
+            3 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 1,
+            )),
+            4 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'month',
+               'isClassString' => false,
+            )),
+            5 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 2,
+            )),
+          ),
+           'valueTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\IntegerType::__set_state(array(
+            )),
+            1 => 
+            PHPStan\Type\IntegerType::__set_state(array(
+            )),
+            2 => 
+            PHPStan\Type\UnionType::__set_state(array(
+               'types' => 
+              array (
+                0 => 
+                PHPStan\Type\IntegerType::__set_state(array(
+                )),
+                1 => 
+                PHPStan\Type\NullType::__set_state(array(
+                )),
+              ),
+            )),
+            3 => 
+            PHPStan\Type\UnionType::__set_state(array(
+               'types' => 
+              array (
+                0 => 
+                PHPStan\Type\IntegerType::__set_state(array(
+                )),
+                1 => 
+                PHPStan\Type\NullType::__set_state(array(
+                )),
+              ),
+            )),
+            4 => 
+            PHPStan\Type\UnionType::__set_state(array(
+               'types' => 
+              array (
+                0 => 
+                PHPStan\Type\IntegerType::__set_state(array(
+                )),
+                1 => 
+                PHPStan\Type\NullType::__set_state(array(
+                )),
+              ),
+            )),
+            5 => 
+            PHPStan\Type\UnionType::__set_state(array(
+               'types' => 
+              array (
+                0 => 
+                PHPStan\Type\IntegerType::__set_state(array(
+                )),
+                1 => 
+                PHPStan\Type\NullType::__set_state(array(
+                )),
+              ),
+            )),
+          ),
+           'nextAutoIndex' => 3,
+           'optionalKeys' => 
+          array (
+          ),
+           'keyType' => 
+          PHPStan\Type\UnionType::__set_state(array(
+             'types' => 
+            array (
+              0 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 0,
+              )),
+              1 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 1,
+              )),
+              2 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 2,
+              )),
+              3 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'count',
+                 'isClassString' => false,
+              )),
+              4 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'month',
+                 'isClassString' => false,
+              )),
+              5 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'year',
+                 'isClassString' => false,
+              )),
+            ),
+          )),
+           'itemType' => 
+          PHPStan\Type\UnionType::__set_state(array(
+             'types' => 
+            array (
+              0 => 
+              PHPStan\Type\IntegerType::__set_state(array(
+              )),
+              1 => 
+              PHPStan\Type\NullType::__set_state(array(
+              )),
+            ),
+          )),
+        )),
+      ),
+    ),
+    'SELECT COUNT(*) count, YEAR(releasedAt) year, MONTH(releasedAt) month FROM `package_version` GROUP BY year, month' => 
+    array (
+      'error' => NULL,
+      'result' => 
+      array (
+        5 => 
+        PHPStan\Type\Constant\ConstantArrayType::__set_state(array(
+           'allArrays' => NULL,
+           'keyTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'count',
+               'isClassString' => false,
+            )),
+            1 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 0,
+            )),
+            2 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'year',
+               'isClassString' => false,
+            )),
+            3 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 1,
+            )),
+            4 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'month',
+               'isClassString' => false,
+            )),
+            5 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 2,
+            )),
+          ),
+           'valueTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\IntegerType::__set_state(array(
+            )),
+            1 => 
+            PHPStan\Type\IntegerType::__set_state(array(
+            )),
+            2 => 
+            PHPStan\Type\UnionType::__set_state(array(
+               'types' => 
+              array (
+                0 => 
+                PHPStan\Type\IntegerType::__set_state(array(
+                )),
+                1 => 
+                PHPStan\Type\NullType::__set_state(array(
+                )),
+              ),
+            )),
+            3 => 
+            PHPStan\Type\UnionType::__set_state(array(
+               'types' => 
+              array (
+                0 => 
+                PHPStan\Type\IntegerType::__set_state(array(
+                )),
+                1 => 
+                PHPStan\Type\NullType::__set_state(array(
+                )),
+              ),
+            )),
+            4 => 
+            PHPStan\Type\UnionType::__set_state(array(
+               'types' => 
+              array (
+                0 => 
+                PHPStan\Type\IntegerType::__set_state(array(
+                )),
+                1 => 
+                PHPStan\Type\NullType::__set_state(array(
+                )),
+              ),
+            )),
+            5 => 
+            PHPStan\Type\UnionType::__set_state(array(
+               'types' => 
+              array (
+                0 => 
+                PHPStan\Type\IntegerType::__set_state(array(
+                )),
+                1 => 
+                PHPStan\Type\NullType::__set_state(array(
+                )),
+              ),
+            )),
+          ),
+           'nextAutoIndex' => 3,
+           'optionalKeys' => 
+          array (
+          ),
+           'keyType' => 
+          PHPStan\Type\UnionType::__set_state(array(
+             'types' => 
+            array (
+              0 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 0,
+              )),
+              1 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 1,
+              )),
+              2 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 2,
+              )),
+              3 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'count',
+                 'isClassString' => false,
+              )),
+              4 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'month',
+                 'isClassString' => false,
+              )),
+              5 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'year',
+                 'isClassString' => false,
+              )),
+            ),
+          )),
+           'itemType' => 
+          PHPStan\Type\UnionType::__set_state(array(
+             'types' => 
+            array (
+              0 => 
+              PHPStan\Type\IntegerType::__set_state(array(
+              )),
+              1 => 
+              PHPStan\Type\NullType::__set_state(array(
+              )),
+            ),
+          )),
+        )),
+      ),
+    ),
+    'SELECT COUNT(p.id) as count
+                FROM package p
+                JOIN package_version pv ON p.id = pv.package_id
+                JOIN link_provide lp ON lp.version_id = pv.id
+                WHERE pv.development = true
+                AND lp.packageName = \'1\'' => 
+    array (
+      'error' => NULL,
+      'result' => 
+      array (
+        5 => 
+        PHPStan\Type\Constant\ConstantArrayType::__set_state(array(
+           'allArrays' => NULL,
+           'keyTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'count',
+               'isClassString' => false,
+            )),
+            1 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 0,
+            )),
+          ),
+           'valueTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\IntegerType::__set_state(array(
+            )),
+            1 => 
+            PHPStan\Type\IntegerType::__set_state(array(
+            )),
+          ),
+           'nextAutoIndex' => 1,
+           'optionalKeys' => 
+          array (
+          ),
+           'keyType' => 
+          PHPStan\Type\UnionType::__set_state(array(
+             'types' => 
+            array (
+              0 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 0,
+              )),
+              1 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'count',
+                 'isClassString' => false,
+              )),
+            ),
+          )),
+           'itemType' => 
+          PHPStan\Type\IntegerType::__set_state(array(
+          )),
+        )),
+      ),
+    ),
+    'SELECT DISTINCT stats.php_minor AS php_minor
+            FROM (SELECT DISTINCT JSON_KEYS(p.data) as versions FROM php_stat p WHERE p.package_id = \'1\' AND p.type = \'1\' AND p.depth IN (\'3\', \'1\')) AS x, 
+            JSON_TABLE(x.versions, \'$[*]\' COLUMNS (php_minor VARCHAR(191) PATH \'$\')) stats' => 
+    array (
+      'error' => NULL,
+      'result' => 
+      array (
+        5 => 
+        PHPStan\Type\Constant\ConstantArrayType::__set_state(array(
+           'allArrays' => NULL,
+           'keyTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'php_minor',
+               'isClassString' => false,
+            )),
+            1 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 0,
+            )),
+          ),
+           'valueTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\UnionType::__set_state(array(
+               'types' => 
+              array (
+                0 => 
+                PHPStan\Type\StringType::__set_state(array(
+                )),
+                1 => 
+                PHPStan\Type\NullType::__set_state(array(
+                )),
+              ),
+            )),
+            1 => 
+            PHPStan\Type\UnionType::__set_state(array(
+               'types' => 
+              array (
+                0 => 
+                PHPStan\Type\StringType::__set_state(array(
+                )),
+                1 => 
+                PHPStan\Type\NullType::__set_state(array(
+                )),
+              ),
+            )),
+          ),
+           'nextAutoIndex' => 1,
+           'optionalKeys' => 
+          array (
+          ),
+           'keyType' => 
+          PHPStan\Type\UnionType::__set_state(array(
+             'types' => 
+            array (
+              0 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 0,
+              )),
+              1 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'php_minor',
+                 'isClassString' => false,
+              )),
+            ),
+          )),
+           'itemType' => 
+          PHPStan\Type\UnionType::__set_state(array(
+             'types' => 
+            array (
+              0 => 
+              PHPStan\Type\StringType::__set_state(array(
+              )),
+              1 => 
+              PHPStan\Type\NullType::__set_state(array(
+              )),
+            ),
+          )),
+        )),
+      ),
+    ),
+    'SELECT GET_LOCK(\'1\', \'1\')' => 
+    array (
+      'error' => NULL,
+      'result' => 
+      array (
+        5 => 
+        PHPStan\Type\Constant\ConstantArrayType::__set_state(array(
+           'allArrays' => NULL,
+           'keyTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'GET_LOCK(\'1\', \'1\')',
+               'isClassString' => false,
+            )),
+            1 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 0,
+            )),
+          ),
+           'valueTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\UnionType::__set_state(array(
+               'types' => 
+              array (
+                0 => 
+                PHPStan\Type\IntegerRangeType::__set_state(array(
+                   'min' => -128,
+                   'max' => 127,
+                )),
+                1 => 
+                PHPStan\Type\NullType::__set_state(array(
+                )),
+              ),
+            )),
+            1 => 
+            PHPStan\Type\UnionType::__set_state(array(
+               'types' => 
+              array (
+                0 => 
+                PHPStan\Type\IntegerRangeType::__set_state(array(
+                   'min' => -128,
+                   'max' => 127,
+                )),
+                1 => 
+                PHPStan\Type\NullType::__set_state(array(
+                )),
+              ),
+            )),
+          ),
+           'nextAutoIndex' => 1,
+           'optionalKeys' => 
+          array (
+          ),
+           'keyType' => 
+          PHPStan\Type\UnionType::__set_state(array(
+             'types' => 
+            array (
+              0 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 0,
+              )),
+              1 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'GET_LOCK(\'1\', \'1\')',
+                 'isClassString' => false,
+              )),
+            ),
+          )),
+           'itemType' => 
+          PHPStan\Type\UnionType::__set_state(array(
+             'types' => 
+            array (
+              0 => 
+              PHPStan\Type\IntegerRangeType::__set_state(array(
+                 'min' => -128,
+                 'max' => 127,
+              )),
+              1 => 
+              PHPStan\Type\NullType::__set_state(array(
+              )),
+            ),
+          )),
+        )),
+      ),
+    ),
+    'SELECT RELEASE_LOCK(\'1\')' => 
+    array (
+      'error' => NULL,
+      'result' => 
+      array (
+        5 => 
+        PHPStan\Type\Constant\ConstantArrayType::__set_state(array(
+           'allArrays' => NULL,
+           'keyTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'RELEASE_LOCK(\'1\')',
+               'isClassString' => false,
+            )),
+            1 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 0,
+            )),
+          ),
+           'valueTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\UnionType::__set_state(array(
+               'types' => 
+              array (
+                0 => 
+                PHPStan\Type\IntegerRangeType::__set_state(array(
+                   'min' => -128,
+                   'max' => 127,
+                )),
+                1 => 
+                PHPStan\Type\NullType::__set_state(array(
+                )),
+              ),
+            )),
+            1 => 
+            PHPStan\Type\UnionType::__set_state(array(
+               'types' => 
+              array (
+                0 => 
+                PHPStan\Type\IntegerRangeType::__set_state(array(
+                   'min' => -128,
+                   'max' => 127,
+                )),
+                1 => 
+                PHPStan\Type\NullType::__set_state(array(
+                )),
+              ),
+            )),
+          ),
+           'nextAutoIndex' => 1,
+           'optionalKeys' => 
+          array (
+          ),
+           'keyType' => 
+          PHPStan\Type\UnionType::__set_state(array(
+             'types' => 
+            array (
+              0 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 0,
+              )),
+              1 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'RELEASE_LOCK(\'1\')',
+                 'isClassString' => false,
+              )),
+            ),
+          )),
+           'itemType' => 
+          PHPStan\Type\UnionType::__set_state(array(
+             'types' => 
+            array (
+              0 => 
+              PHPStan\Type\IntegerRangeType::__set_state(array(
+                 'min' => -128,
+                 'max' => 127,
+              )),
+              1 => 
+              PHPStan\Type\NullType::__set_state(array(
+              )),
+            ),
+          )),
+        )),
+      ),
+    ),
+    'SELECT data FROM download WHERE id = \'1\' AND type = \'1\'' => 
+    array (
+      'error' => NULL,
+      'result' => 
+      array (
+        5 => 
+        PHPStan\Type\Constant\ConstantArrayType::__set_state(array(
+           'allArrays' => NULL,
+           'keyTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'data',
+               'isClassString' => false,
+            )),
+            1 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 0,
+            )),
+          ),
+           'valueTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+            1 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+          ),
+           'nextAutoIndex' => 1,
+           'optionalKeys' => 
+          array (
+          ),
+           'keyType' => 
+          PHPStan\Type\UnionType::__set_state(array(
+             'types' => 
+            array (
+              0 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 0,
+              )),
+              1 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'data',
+                 'isClassString' => false,
+              )),
+            ),
+          )),
+           'itemType' => 
+          PHPStan\Type\StringType::__set_state(array(
+          )),
+        )),
+      ),
+    ),
+    'SELECT id FROM job WHERE packageId = \'1\' AND status IN (\'completed\') AND type = \'1\' ORDER BY createdAt DESC' => 
+    array (
+      'error' => NULL,
+      'result' => 
+      array (
+        5 => 
+        PHPStan\Type\Constant\ConstantArrayType::__set_state(array(
+           'allArrays' => NULL,
+           'keyTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'id',
+               'isClassString' => false,
+            )),
+            1 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 0,
+            )),
+          ),
+           'valueTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+            1 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+          ),
+           'nextAutoIndex' => 1,
+           'optionalKeys' => 
+          array (
+          ),
+           'keyType' => 
+          PHPStan\Type\UnionType::__set_state(array(
+             'types' => 
+            array (
+              0 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 0,
+              )),
+              1 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'id',
+                 'isClassString' => false,
+              )),
+            ),
+          )),
+           'itemType' => 
+          PHPStan\Type\StringType::__set_state(array(
+          )),
+        )),
+      ),
+    ),
+    'SELECT id FROM job WHERE status = \'queued\' AND (executeAfter IS NULL OR executeAfter <= \'1\') ORDER BY createdAt ASC' => 
+    array (
+      'error' => NULL,
+      'result' => 
+      array (
+        5 => NULL,
+      ),
+    ),
+    'SELECT id FROM package_version WHERE id IN (\'1\')' => 
+    array (
+      'error' => NULL,
+      'result' => 
+      array (
+        5 => 
+        PHPStan\Type\Constant\ConstantArrayType::__set_state(array(
+           'allArrays' => NULL,
+           'keyTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'id',
+               'isClassString' => false,
+            )),
+            1 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 0,
+            )),
+          ),
+           'valueTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\IntegerRangeType::__set_state(array(
+               'min' => 0,
+               'max' => 4294967295,
+            )),
+            1 => 
+            PHPStan\Type\IntegerRangeType::__set_state(array(
+               'min' => 0,
+               'max' => 4294967295,
+            )),
+          ),
+           'nextAutoIndex' => 1,
+           'optionalKeys' => 
+          array (
+          ),
+           'keyType' => 
+          PHPStan\Type\UnionType::__set_state(array(
+             'types' => 
+            array (
+              0 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 0,
+              )),
+              1 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'id',
+                 'isClassString' => false,
+              )),
+            ),
+          )),
+           'itemType' => 
+          PHPStan\Type\IntegerRangeType::__set_state(array(
+             'min' => 0,
+             'max' => 4294967295,
+          )),
+        )),
+      ),
+    ),
+    'SELECT id FROM package_version WHERE package_id = \'1\' ORDER BY defaultBranch DESC, releasedAt DESC LIMIT 1' => 
+    array (
+      'error' => NULL,
+      'result' => 
+      array (
+        5 => 
+        PHPStan\Type\Constant\ConstantArrayType::__set_state(array(
+           'allArrays' => NULL,
+           'keyTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'id',
+               'isClassString' => false,
+            )),
+            1 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 0,
+            )),
+          ),
+           'valueTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\IntegerRangeType::__set_state(array(
+               'min' => 0,
+               'max' => 4294967295,
+            )),
+            1 => 
+            PHPStan\Type\IntegerRangeType::__set_state(array(
+               'min' => 0,
+               'max' => 4294967295,
+            )),
+          ),
+           'nextAutoIndex' => 1,
+           'optionalKeys' => 
+          array (
+          ),
+           'keyType' => 
+          PHPStan\Type\UnionType::__set_state(array(
+             'types' => 
+            array (
+              0 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 0,
+              )),
+              1 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'id',
+                 'isClassString' => false,
+              )),
+            ),
+          )),
+           'itemType' => 
+          PHPStan\Type\IntegerRangeType::__set_state(array(
+             'min' => 0,
+             'max' => 4294967295,
+          )),
+        )),
+      ),
+    ),
+    'SELECT id, name FROM package WHERE name LIKE \'1\'' => 
+    array (
+      'error' => NULL,
+      'result' => 
+      array (
+        5 => 
+        PHPStan\Type\Constant\ConstantArrayType::__set_state(array(
+           'allArrays' => NULL,
+           'keyTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'id',
+               'isClassString' => false,
+            )),
+            1 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 0,
+            )),
+            2 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'name',
+               'isClassString' => false,
+            )),
+            3 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 1,
+            )),
+          ),
+           'valueTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\IntegerRangeType::__set_state(array(
+               'min' => 0,
+               'max' => 4294967295,
+            )),
+            1 => 
+            PHPStan\Type\IntegerRangeType::__set_state(array(
+               'min' => 0,
+               'max' => 4294967295,
+            )),
+            2 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+            3 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+          ),
+           'nextAutoIndex' => 2,
+           'optionalKeys' => 
+          array (
+          ),
+           'keyType' => 
+          PHPStan\Type\UnionType::__set_state(array(
+             'types' => 
+            array (
+              0 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 0,
+              )),
+              1 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 1,
+              )),
+              2 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'id',
+                 'isClassString' => false,
+              )),
+              3 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'name',
+                 'isClassString' => false,
+              )),
+            ),
+          )),
+           'itemType' => 
+          PHPStan\Type\UnionType::__set_state(array(
+             'types' => 
+            array (
+              0 => 
+              PHPStan\Type\IntegerRangeType::__set_state(array(
+                 'min' => 0,
+                 'max' => 4294967295,
+              )),
+              1 => 
+              PHPStan\Type\StringType::__set_state(array(
+              )),
+            ),
+          )),
+        )),
+      ),
+    ),
+    'SELECT id, name, normalizedVersion FROM package_version WHERE package_id = \'1\'' => 
+    array (
+      'error' => NULL,
+      'result' => 
+      array (
+        5 => 
+        PHPStan\Type\Constant\ConstantArrayType::__set_state(array(
+           'allArrays' => NULL,
+           'keyTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'id',
+               'isClassString' => false,
+            )),
+            1 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 0,
+            )),
+            2 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'name',
+               'isClassString' => false,
+            )),
+            3 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 1,
+            )),
+            4 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'normalizedVersion',
+               'isClassString' => false,
+            )),
+            5 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 2,
+            )),
+          ),
+           'valueTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\IntegerRangeType::__set_state(array(
+               'min' => 0,
+               'max' => 4294967295,
+            )),
+            1 => 
+            PHPStan\Type\IntegerRangeType::__set_state(array(
+               'min' => 0,
+               'max' => 4294967295,
+            )),
+            2 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+            3 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+            4 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+            5 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+          ),
+           'nextAutoIndex' => 3,
+           'optionalKeys' => 
+          array (
+          ),
+           'keyType' => 
+          PHPStan\Type\UnionType::__set_state(array(
+             'types' => 
+            array (
+              0 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 0,
+              )),
+              1 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 1,
+              )),
+              2 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 2,
+              )),
+              3 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'id',
+                 'isClassString' => false,
+              )),
+              4 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'name',
+                 'isClassString' => false,
+              )),
+              5 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'normalizedVersion',
+                 'isClassString' => false,
+              )),
+            ),
+          )),
+           'itemType' => 
+          PHPStan\Type\UnionType::__set_state(array(
+             'types' => 
+            array (
+              0 => 
+              PHPStan\Type\IntegerRangeType::__set_state(array(
+                 'min' => 0,
+                 'max' => 4294967295,
+              )),
+              1 => 
+              PHPStan\Type\StringType::__set_state(array(
+              )),
+            ),
+          )),
+        )),
+      ),
+    ),
+    'SELECT id, payload FROM job WHERE packageId = \'1\' AND status = \'queued\' AND type = \'package:updates\' LIMIT 1' => 
+    array (
+      'error' => NULL,
+      'result' => 
+      array (
+        5 => 
+        PHPStan\Type\Constant\ConstantArrayType::__set_state(array(
+           'allArrays' => NULL,
+           'keyTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'id',
+               'isClassString' => false,
+            )),
+            1 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 0,
+            )),
+            2 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'payload',
+               'isClassString' => false,
+            )),
+            3 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 1,
+            )),
+          ),
+           'valueTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+            1 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+            2 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+            3 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+          ),
+           'nextAutoIndex' => 2,
+           'optionalKeys' => 
+          array (
+          ),
+           'keyType' => 
+          PHPStan\Type\UnionType::__set_state(array(
+             'types' => 
+            array (
+              0 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 0,
+              )),
+              1 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 1,
+              )),
+              2 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'id',
+                 'isClassString' => false,
+              )),
+              3 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'payload',
+                 'isClassString' => false,
+              )),
+            ),
+          )),
+           'itemType' => 
+          PHPStan\Type\StringType::__set_state(array(
+          )),
+        )),
+      ),
+    ),
+    'SELECT id, version, normalizedVersion, source, softDeletedAt FROM package_version v WHERE v.package_id = \'1\'' => 
+    array (
+      'error' => NULL,
+      'result' => 
+      array (
+        5 => 
+        PHPStan\Type\Constant\ConstantArrayType::__set_state(array(
+           'allArrays' => NULL,
+           'keyTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'id',
+               'isClassString' => false,
+            )),
+            1 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 0,
+            )),
+            2 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'version',
+               'isClassString' => false,
+            )),
+            3 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 1,
+            )),
+            4 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'normalizedVersion',
+               'isClassString' => false,
+            )),
+            5 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 2,
+            )),
+            6 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'source',
+               'isClassString' => false,
+            )),
+            7 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 3,
+            )),
+            8 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'softDeletedAt',
+               'isClassString' => false,
+            )),
+            9 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 4,
+            )),
+          ),
+           'valueTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\IntegerRangeType::__set_state(array(
+               'min' => 0,
+               'max' => 4294967295,
+            )),
+            1 => 
+            PHPStan\Type\IntegerRangeType::__set_state(array(
+               'min' => 0,
+               'max' => 4294967295,
+            )),
+            2 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+            3 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+            4 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+            5 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+            6 => 
+            PHPStan\Type\UnionType::__set_state(array(
+               'types' => 
+              array (
+                0 => 
+                PHPStan\Type\StringType::__set_state(array(
+                )),
+                1 => 
+                PHPStan\Type\NullType::__set_state(array(
+                )),
+              ),
+            )),
+            7 => 
+            PHPStan\Type\UnionType::__set_state(array(
+               'types' => 
+              array (
+                0 => 
+                PHPStan\Type\StringType::__set_state(array(
+                )),
+                1 => 
+                PHPStan\Type\NullType::__set_state(array(
+                )),
+              ),
+            )),
+            8 => 
+            PHPStan\Type\UnionType::__set_state(array(
+               'types' => 
+              array (
+                0 => 
+                PHPStan\Type\StringType::__set_state(array(
+                )),
+                1 => 
+                PHPStan\Type\NullType::__set_state(array(
+                )),
+              ),
+            )),
+            9 => 
+            PHPStan\Type\UnionType::__set_state(array(
+               'types' => 
+              array (
+                0 => 
+                PHPStan\Type\StringType::__set_state(array(
+                )),
+                1 => 
+                PHPStan\Type\NullType::__set_state(array(
+                )),
+              ),
+            )),
+          ),
+           'nextAutoIndex' => 5,
+           'optionalKeys' => 
+          array (
+          ),
+           'keyType' => 
+          PHPStan\Type\UnionType::__set_state(array(
+             'types' => 
+            array (
+              0 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 0,
+              )),
+              1 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 1,
+              )),
+              2 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 2,
+              )),
+              3 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 3,
+              )),
+              4 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 4,
+              )),
+              5 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'id',
+                 'isClassString' => false,
+              )),
+              6 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'normalizedVersion',
+                 'isClassString' => false,
+              )),
+              7 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'softDeletedAt',
+                 'isClassString' => false,
+              )),
+              8 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'source',
+                 'isClassString' => false,
+              )),
+              9 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'version',
+                 'isClassString' => false,
+              )),
+            ),
+          )),
+           'itemType' => 
+          PHPStan\Type\UnionType::__set_state(array(
+             'types' => 
+            array (
+              0 => 
+              PHPStan\Type\IntegerRangeType::__set_state(array(
+                 'min' => 0,
+                 'max' => 4294967295,
+              )),
+              1 => 
+              PHPStan\Type\StringType::__set_state(array(
+              )),
+              2 => 
+              PHPStan\Type\NullType::__set_state(array(
+              )),
+            ),
+          )),
+        )),
+      ),
+    ),
+    'SELECT lp.packageName
+                FROM package p
+                JOIN package_version pv ON p.id = pv.package_id
+                JOIN link_provide lp ON lp.version_id = pv.id
+                WHERE p.id = \'1\'
+                AND pv.development = true
+                GROUP BY lp.packageName' => 
+    array (
+      'error' => NULL,
+      'result' => 
+      array (
+        5 => 
+        PHPStan\Type\Constant\ConstantArrayType::__set_state(array(
+           'allArrays' => NULL,
+           'keyTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'packageName',
+               'isClassString' => false,
+            )),
+            1 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 0,
+            )),
+          ),
+           'valueTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+            1 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+          ),
+           'nextAutoIndex' => 1,
+           'optionalKeys' => 
+          array (
+          ),
+           'keyType' => 
+          PHPStan\Type\UnionType::__set_state(array(
+             'types' => 
+            array (
+              0 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 0,
+              )),
+              1 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'packageName',
+                 'isClassString' => false,
+              )),
+            ),
+          )),
+           'itemType' => 
+          PHPStan\Type\StringType::__set_state(array(
+          )),
+        )),
+      ),
+    ),
+    'SELECT name FROM package WHERE name LIKE \'1\'' => 
+    array (
+      'error' => NULL,
+      'result' => 
+      array (
+        5 => 
+        PHPStan\Type\Constant\ConstantArrayType::__set_state(array(
+           'allArrays' => NULL,
+           'keyTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'name',
+               'isClassString' => false,
+            )),
+            1 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 0,
+            )),
+          ),
+           'valueTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+            1 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+          ),
+           'nextAutoIndex' => 1,
+           'optionalKeys' => 
+          array (
+          ),
+           'keyType' => 
+          PHPStan\Type\UnionType::__set_state(array(
+             'types' => 
+            array (
+              0 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 0,
+              )),
+              1 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'name',
+                 'isClassString' => false,
+              )),
+            ),
+          )),
+           'itemType' => 
+          PHPStan\Type\StringType::__set_state(array(
+          )),
+        )),
+      ),
+    ),
+    'SELECT normalizedVersion from package_version WHERE package_id = \'1\' AND defaultBranch = 1' => 
+    array (
+      'error' => NULL,
+      'result' => 
+      array (
+        5 => 
+        PHPStan\Type\Constant\ConstantArrayType::__set_state(array(
+           'allArrays' => NULL,
+           'keyTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'normalizedVersion',
+               'isClassString' => false,
+            )),
+            1 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 0,
+            )),
+          ),
+           'valueTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+            1 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+          ),
+           'nextAutoIndex' => 1,
+           'optionalKeys' => 
+          array (
+          ),
+           'keyType' => 
+          PHPStan\Type\UnionType::__set_state(array(
+             'types' => 
+            array (
+              0 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 0,
+              )),
+              1 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'normalizedVersion',
+                 'isClassString' => false,
+              )),
+            ),
+          )),
+           'itemType' => 
+          PHPStan\Type\StringType::__set_state(array(
+          )),
+        )),
+      ),
+    ),
+    'SELECT p.id FROM package p
+            WHERE p.abandoned = false
+            AND (
+                p.crawledAt IS NULL
+                OR (p.autoUpdated = 0 AND p.crawledAt < \'1\' AND p.createdAt >= \'1\')
+                OR (p.autoUpdated = 0 AND p.crawledAt < \'1\')
+                OR (p.crawledAt < \'1\')
+            )
+            ORDER BY p.id ASC' => 
+    array (
+      'error' => NULL,
+      'result' => 
+      array (
+        5 => NULL,
+      ),
+    ),
+    'SELECT p.id, p.name, p.description, p.language, p.abandoned, p.replacementPackage
+            FROM package p INNER JOIN (
+                SELECT DISTINCT package_id FROM dependent WHERE packageName = \'1\'
+            ) x ON x.package_id = p.id  ORDER BY d.total DESC LIMIT 1 OFFSET 1' => 
+    array (
+      'error' => 
+      staabm\PHPStanDba\Error::__set_state(array(
+         'message' => 'Unknown column \'d.total\' in \'order clause\'',
+         'code' => 1054,
+      )),
+      'result' => 
+      array (
+        5 => NULL,
+      ),
+    ),
+    'SELECT p.id, p.name, p.description, p.language, p.abandoned, p.replacementPackage
+            FROM package p INNER JOIN (
+                SELECT DISTINCT package_id FROM suggester WHERE packageName = \'1\'
+            ) x ON x.package_id = p.id ORDER BY p.name ASC LIMIT 1 OFFSET 1' => 
+    array (
+      'error' => NULL,
+      'result' => 
+      array (
+        5 => 
+        PHPStan\Type\Constant\ConstantArrayType::__set_state(array(
+           'allArrays' => NULL,
+           'keyTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'id',
+               'isClassString' => false,
+            )),
+            1 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 0,
+            )),
+            2 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'name',
+               'isClassString' => false,
+            )),
+            3 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 1,
+            )),
+            4 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'description',
+               'isClassString' => false,
+            )),
+            5 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 2,
+            )),
+            6 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'language',
+               'isClassString' => false,
+            )),
+            7 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 3,
+            )),
+            8 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'abandoned',
+               'isClassString' => false,
+            )),
+            9 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 4,
+            )),
+            10 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'replacementPackage',
+               'isClassString' => false,
+            )),
+            11 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 5,
+            )),
+          ),
+           'valueTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\IntegerRangeType::__set_state(array(
+               'min' => 0,
+               'max' => 4294967295,
+            )),
+            1 => 
+            PHPStan\Type\IntegerRangeType::__set_state(array(
+               'min' => 0,
+               'max' => 4294967295,
+            )),
+            2 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+            3 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+            4 => 
+            PHPStan\Type\UnionType::__set_state(array(
+               'types' => 
+              array (
+                0 => 
+                PHPStan\Type\StringType::__set_state(array(
+                )),
+                1 => 
+                PHPStan\Type\NullType::__set_state(array(
+                )),
+              ),
+            )),
+            5 => 
+            PHPStan\Type\UnionType::__set_state(array(
+               'types' => 
+              array (
+                0 => 
+                PHPStan\Type\StringType::__set_state(array(
+                )),
+                1 => 
+                PHPStan\Type\NullType::__set_state(array(
+                )),
+              ),
+            )),
+            6 => 
+            PHPStan\Type\UnionType::__set_state(array(
+               'types' => 
+              array (
+                0 => 
+                PHPStan\Type\StringType::__set_state(array(
+                )),
+                1 => 
+                PHPStan\Type\NullType::__set_state(array(
+                )),
+              ),
+            )),
+            7 => 
+            PHPStan\Type\UnionType::__set_state(array(
+               'types' => 
+              array (
+                0 => 
+                PHPStan\Type\StringType::__set_state(array(
+                )),
+                1 => 
+                PHPStan\Type\NullType::__set_state(array(
+                )),
+              ),
+            )),
+            8 => 
+            PHPStan\Type\IntegerRangeType::__set_state(array(
+               'min' => -128,
+               'max' => 127,
+            )),
+            9 => 
+            PHPStan\Type\IntegerRangeType::__set_state(array(
+               'min' => -128,
+               'max' => 127,
+            )),
+            10 => 
+            PHPStan\Type\UnionType::__set_state(array(
+               'types' => 
+              array (
+                0 => 
+                PHPStan\Type\StringType::__set_state(array(
+                )),
+                1 => 
+                PHPStan\Type\NullType::__set_state(array(
+                )),
+              ),
+            )),
+            11 => 
+            PHPStan\Type\UnionType::__set_state(array(
+               'types' => 
+              array (
+                0 => 
+                PHPStan\Type\StringType::__set_state(array(
+                )),
+                1 => 
+                PHPStan\Type\NullType::__set_state(array(
+                )),
+              ),
+            )),
+          ),
+           'nextAutoIndex' => 6,
+           'optionalKeys' => 
+          array (
+          ),
+           'keyType' => 
+          PHPStan\Type\UnionType::__set_state(array(
+             'types' => 
+            array (
+              0 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 0,
+              )),
+              1 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 1,
+              )),
+              2 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 2,
+              )),
+              3 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 3,
+              )),
+              4 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 4,
+              )),
+              5 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 5,
+              )),
+              6 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'abandoned',
+                 'isClassString' => false,
+              )),
+              7 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'description',
+                 'isClassString' => false,
+              )),
+              8 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'id',
+                 'isClassString' => false,
+              )),
+              9 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'language',
+                 'isClassString' => false,
+              )),
+              10 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'name',
+                 'isClassString' => false,
+              )),
+              11 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'replacementPackage',
+                 'isClassString' => false,
+              )),
+            ),
+          )),
+           'itemType' => 
+          PHPStan\Type\UnionType::__set_state(array(
+             'types' => 
+            array (
+              0 => 
+              PHPStan\Type\IntegerRangeType::__set_state(array(
+                 'min' => -128,
+                 'max' => 4294967295,
+              )),
+              1 => 
+              PHPStan\Type\StringType::__set_state(array(
+              )),
+              2 => 
+              PHPStan\Type\NullType::__set_state(array(
+              )),
+            ),
+          )),
+        )),
+      ),
+    ),
+    'SELECT p.id, v.id vid
+            FROM package p
+            LEFT JOIN package_version v ON p.id = v.package_id
+            WHERE p.name = \'1\'
+            AND v.defaultBranch = true
+            LIMIT 1' => 
+    array (
+      'error' => NULL,
+      'result' => 
+      array (
+        5 => 
+        PHPStan\Type\Constant\ConstantArrayType::__set_state(array(
+           'allArrays' => NULL,
+           'keyTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'id',
+               'isClassString' => false,
+            )),
+            1 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 0,
+            )),
+            2 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'vid',
+               'isClassString' => false,
+            )),
+            3 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 1,
+            )),
+          ),
+           'valueTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\IntegerRangeType::__set_state(array(
+               'min' => 0,
+               'max' => 4294967295,
+            )),
+            1 => 
+            PHPStan\Type\IntegerRangeType::__set_state(array(
+               'min' => 0,
+               'max' => 4294967295,
+            )),
+            2 => 
+            PHPStan\Type\UnionType::__set_state(array(
+               'types' => 
+              array (
+                0 => 
+                PHPStan\Type\IntegerRangeType::__set_state(array(
+                   'min' => 0,
+                   'max' => 4294967295,
+                )),
+                1 => 
+                PHPStan\Type\NullType::__set_state(array(
+                )),
+              ),
+            )),
+            3 => 
+            PHPStan\Type\UnionType::__set_state(array(
+               'types' => 
+              array (
+                0 => 
+                PHPStan\Type\IntegerRangeType::__set_state(array(
+                   'min' => 0,
+                   'max' => 4294967295,
+                )),
+                1 => 
+                PHPStan\Type\NullType::__set_state(array(
+                )),
+              ),
+            )),
+          ),
+           'nextAutoIndex' => 2,
+           'optionalKeys' => 
+          array (
+          ),
+           'keyType' => 
+          PHPStan\Type\UnionType::__set_state(array(
+             'types' => 
+            array (
+              0 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 0,
+              )),
+              1 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 1,
+              )),
+              2 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'id',
+                 'isClassString' => false,
+              )),
+              3 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'vid',
+                 'isClassString' => false,
+              )),
+            ),
+          )),
+           'itemType' => 
+          PHPStan\Type\UnionType::__set_state(array(
+             'types' => 
+            array (
+              0 => 
+              PHPStan\Type\IntegerRangeType::__set_state(array(
+                 'min' => 0,
+                 'max' => 4294967295,
+              )),
+              1 => 
+              PHPStan\Type\NullType::__set_state(array(
+              )),
+            ),
+          )),
+        )),
+      ),
+    ),
+    'SELECT package_id FROM php_stat WHERE type=\'1\' AND depth=\'1\'' => 
+    array (
+      'error' => NULL,
+      'result' => 
+      array (
+        5 => 
+        PHPStan\Type\Constant\ConstantArrayType::__set_state(array(
+           'allArrays' => NULL,
+           'keyTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'package_id',
+               'isClassString' => false,
+            )),
+            1 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 0,
+            )),
+          ),
+           'valueTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\IntegerRangeType::__set_state(array(
+               'min' => -2147483648,
+               'max' => 2147483647,
+            )),
+            1 => 
+            PHPStan\Type\IntegerRangeType::__set_state(array(
+               'min' => -2147483648,
+               'max' => 2147483647,
+            )),
+          ),
+           'nextAutoIndex' => 1,
+           'optionalKeys' => 
+          array (
+          ),
+           'keyType' => 
+          PHPStan\Type\UnionType::__set_state(array(
+             'types' => 
+            array (
+              0 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 0,
+              )),
+              1 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'package_id',
+                 'isClassString' => false,
+              )),
+            ),
+          )),
+           'itemType' => 
+          PHPStan\Type\IntegerRangeType::__set_state(array(
+             'min' => -2147483648,
+             'max' => 2147483647,
+          )),
+        )),
+      ),
+    ),
+    'SELECT s.*
+            FROM security_advisory s
+            WHERE s.packageName = \'1\'
+            ORDER BY s.reportedAt DESC, s.id DESC' => 
+    array (
+      'error' => NULL,
+      'result' => 
+      array (
+        5 => 
+        PHPStan\Type\Constant\ConstantArrayType::__set_state(array(
+           'allArrays' => NULL,
+           'keyTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'id',
+               'isClassString' => false,
+            )),
+            1 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 0,
+            )),
+            2 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'remoteId',
+               'isClassString' => false,
+            )),
+            3 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 1,
+            )),
+            4 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'packageName',
+               'isClassString' => false,
+            )),
+            5 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 2,
+            )),
+            6 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'title',
+               'isClassString' => false,
+            )),
+            7 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 3,
+            )),
+            8 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'link',
+               'isClassString' => false,
+            )),
+            9 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 4,
+            )),
+            10 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'cve',
+               'isClassString' => false,
+            )),
+            11 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 5,
+            )),
+            12 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'affectedVersions',
+               'isClassString' => false,
+            )),
+            13 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 6,
+            )),
+            14 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'source',
+               'isClassString' => false,
+            )),
+            15 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 7,
+            )),
+            16 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'updatedAt',
+               'isClassString' => false,
+            )),
+            17 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 8,
+            )),
+            18 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'reportedAt',
+               'isClassString' => false,
+            )),
+            19 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 9,
+            )),
+            20 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'composerRepository',
+               'isClassString' => false,
+            )),
+            21 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 10,
+            )),
+            22 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'packagistAdvisoryId',
+               'isClassString' => false,
+            )),
+            23 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 11,
+            )),
+          ),
+           'valueTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\IntegerRangeType::__set_state(array(
+               'min' => 0,
+               'max' => 4294967295,
+            )),
+            1 => 
+            PHPStan\Type\IntegerRangeType::__set_state(array(
+               'min' => 0,
+               'max' => 4294967295,
+            )),
+            2 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+            3 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+            4 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+            5 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+            6 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+            7 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+            8 => 
+            PHPStan\Type\UnionType::__set_state(array(
+               'types' => 
+              array (
+                0 => 
+                PHPStan\Type\StringType::__set_state(array(
+                )),
+                1 => 
+                PHPStan\Type\NullType::__set_state(array(
+                )),
+              ),
+            )),
+            9 => 
+            PHPStan\Type\UnionType::__set_state(array(
+               'types' => 
+              array (
+                0 => 
+                PHPStan\Type\StringType::__set_state(array(
+                )),
+                1 => 
+                PHPStan\Type\NullType::__set_state(array(
+                )),
+              ),
+            )),
+            10 => 
+            PHPStan\Type\UnionType::__set_state(array(
+               'types' => 
+              array (
+                0 => 
+                PHPStan\Type\StringType::__set_state(array(
+                )),
+                1 => 
+                PHPStan\Type\NullType::__set_state(array(
+                )),
+              ),
+            )),
+            11 => 
+            PHPStan\Type\UnionType::__set_state(array(
+               'types' => 
+              array (
+                0 => 
+                PHPStan\Type\StringType::__set_state(array(
+                )),
+                1 => 
+                PHPStan\Type\NullType::__set_state(array(
+                )),
+              ),
+            )),
+            12 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+            13 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+            14 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+            15 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+            16 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+            17 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+            18 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+            19 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+            20 => 
+            PHPStan\Type\UnionType::__set_state(array(
+               'types' => 
+              array (
+                0 => 
+                PHPStan\Type\StringType::__set_state(array(
+                )),
+                1 => 
+                PHPStan\Type\NullType::__set_state(array(
+                )),
+              ),
+            )),
+            21 => 
+            PHPStan\Type\UnionType::__set_state(array(
+               'types' => 
+              array (
+                0 => 
+                PHPStan\Type\StringType::__set_state(array(
+                )),
+                1 => 
+                PHPStan\Type\NullType::__set_state(array(
+                )),
+              ),
+            )),
+            22 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+            23 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+          ),
+           'nextAutoIndex' => 12,
+           'optionalKeys' => 
+          array (
+          ),
+           'keyType' => 
+          PHPStan\Type\UnionType::__set_state(array(
+             'types' => 
+            array (
+              0 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 0,
+              )),
+              1 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 1,
+              )),
+              2 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 2,
+              )),
+              3 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 3,
+              )),
+              4 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 4,
+              )),
+              5 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 5,
+              )),
+              6 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 6,
+              )),
+              7 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 7,
+              )),
+              8 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 8,
+              )),
+              9 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 9,
+              )),
+              10 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 10,
+              )),
+              11 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 11,
+              )),
+              12 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'affectedVersions',
+                 'isClassString' => false,
+              )),
+              13 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'composerRepository',
+                 'isClassString' => false,
+              )),
+              14 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'cve',
+                 'isClassString' => false,
+              )),
+              15 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'id',
+                 'isClassString' => false,
+              )),
+              16 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'link',
+                 'isClassString' => false,
+              )),
+              17 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'packageName',
+                 'isClassString' => false,
+              )),
+              18 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'packagistAdvisoryId',
+                 'isClassString' => false,
+              )),
+              19 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'remoteId',
+                 'isClassString' => false,
+              )),
+              20 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'reportedAt',
+                 'isClassString' => false,
+              )),
+              21 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'source',
+                 'isClassString' => false,
+              )),
+              22 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'title',
+                 'isClassString' => false,
+              )),
+              23 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'updatedAt',
+                 'isClassString' => false,
+              )),
+            ),
+          )),
+           'itemType' => 
+          PHPStan\Type\UnionType::__set_state(array(
+             'types' => 
+            array (
+              0 => 
+              PHPStan\Type\IntegerRangeType::__set_state(array(
+                 'min' => 0,
+                 'max' => 4294967295,
+              )),
+              1 => 
+              PHPStan\Type\StringType::__set_state(array(
+              )),
+              2 => 
+              PHPStan\Type\NullType::__set_state(array(
+              )),
+            ),
+          )),
+        )),
+      ),
+    ),
+    'SELECT s.packagistAdvisoryId as advisoryId, s.packageName, s.remoteId, s.title, s.link, s.cve, s.affectedVersions, s.source, s.reportedAt, s.composerRepository
+            FROM security_advisory s
+            WHERE s.updatedAt >= \'1\'  ORDER BY s.id DESC' => 
+    array (
+      'error' => NULL,
+      'result' => 
+      array (
+        5 => NULL,
+      ),
+    ),
+    'SELECT t.name FROM package p
+                            JOIN package_version pv ON p.id = pv.package_id
+                            JOIN version_tag vt ON vt.version_id = pv.id
+                            JOIN tag t ON t.id = vt.tag_id
+                            WHERE p.id = \'1\'
+                            GROUP BY t.id, t.name' => 
+    array (
+      'error' => NULL,
+      'result' => 
+      array (
+        5 => 
+        PHPStan\Type\Constant\ConstantArrayType::__set_state(array(
+           'allArrays' => NULL,
+           'keyTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'name',
+               'isClassString' => false,
+            )),
+            1 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 0,
+            )),
+          ),
+           'valueTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+            1 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+          ),
+           'nextAutoIndex' => 1,
+           'optionalKeys' => 
+          array (
+          ),
+           'keyType' => 
+          PHPStan\Type\UnionType::__set_state(array(
+             'types' => 
+            array (
+              0 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 0,
+              )),
+              1 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'name',
+                 'isClassString' => false,
+              )),
+            ),
+          )),
+           'itemType' => 
+          PHPStan\Type\StringType::__set_state(array(
+          )),
+        )),
+      ),
+    ),
+    'SELECT verified FROM vendor WHERE name = \'1\'' => 
+    array (
+      'error' => NULL,
+      'result' => 
+      array (
+        5 => 
+        PHPStan\Type\Constant\ConstantArrayType::__set_state(array(
+           'allArrays' => NULL,
+           'keyTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'verified',
+               'isClassString' => false,
+            )),
+            1 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 0,
+            )),
+          ),
+           'valueTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\IntegerRangeType::__set_state(array(
+               'min' => -128,
+               'max' => 127,
+            )),
+            1 => 
+            PHPStan\Type\IntegerRangeType::__set_state(array(
+               'min' => -128,
+               'max' => 127,
+            )),
+          ),
+           'nextAutoIndex' => 1,
+           'optionalKeys' => 
+          array (
+          ),
+           'keyType' => 
+          PHPStan\Type\UnionType::__set_state(array(
+             'types' => 
+            array (
+              0 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 0,
+              )),
+              1 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'verified',
+                 'isClassString' => false,
+              )),
+            ),
+          )),
+           'itemType' => 
+          PHPStan\Type\IntegerRangeType::__set_state(array(
+             'min' => -128,
+             'max' => 127,
+          )),
+        )),
+      ),
+    ),
+    'SELECT version_id, packageName name, packageVersion version FROM link_conflict WHERE version_id IN (\'1\')' => 
+    array (
+      'error' => NULL,
+      'result' => 
+      array (
+        5 => 
+        PHPStan\Type\Constant\ConstantArrayType::__set_state(array(
+           'allArrays' => NULL,
+           'keyTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'version_id',
+               'isClassString' => false,
+            )),
+            1 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 0,
+            )),
+            2 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'name',
+               'isClassString' => false,
+            )),
+            3 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 1,
+            )),
+            4 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'version',
+               'isClassString' => false,
+            )),
+            5 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 2,
+            )),
+          ),
+           'valueTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\UnionType::__set_state(array(
+               'types' => 
+              array (
+                0 => 
+                PHPStan\Type\IntegerRangeType::__set_state(array(
+                   'min' => -2147483648,
+                   'max' => 2147483647,
+                )),
+                1 => 
+                PHPStan\Type\NullType::__set_state(array(
+                )),
+              ),
+            )),
+            1 => 
+            PHPStan\Type\UnionType::__set_state(array(
+               'types' => 
+              array (
+                0 => 
+                PHPStan\Type\IntegerRangeType::__set_state(array(
+                   'min' => -2147483648,
+                   'max' => 2147483647,
+                )),
+                1 => 
+                PHPStan\Type\NullType::__set_state(array(
+                )),
+              ),
+            )),
+            2 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+            3 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+            4 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+            5 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+          ),
+           'nextAutoIndex' => 3,
+           'optionalKeys' => 
+          array (
+          ),
+           'keyType' => 
+          PHPStan\Type\UnionType::__set_state(array(
+             'types' => 
+            array (
+              0 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 0,
+              )),
+              1 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 1,
+              )),
+              2 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 2,
+              )),
+              3 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'name',
+                 'isClassString' => false,
+              )),
+              4 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'version',
+                 'isClassString' => false,
+              )),
+              5 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'version_id',
+                 'isClassString' => false,
+              )),
+            ),
+          )),
+           'itemType' => 
+          PHPStan\Type\UnionType::__set_state(array(
+             'types' => 
+            array (
+              0 => 
+              PHPStan\Type\IntegerRangeType::__set_state(array(
+                 'min' => -2147483648,
+                 'max' => 2147483647,
+              )),
+              1 => 
+              PHPStan\Type\StringType::__set_state(array(
+              )),
+              2 => 
+              PHPStan\Type\NullType::__set_state(array(
+              )),
+            ),
+          )),
+        )),
+      ),
+    ),
+    'SELECT vt.version_id, name FROM tag t JOIN version_tag vt ON vt.tag_id = t.id WHERE vt.version_id IN (\'1\')' => 
+    array (
+      'error' => NULL,
+      'result' => 
+      array (
+        5 => 
+        PHPStan\Type\Constant\ConstantArrayType::__set_state(array(
+           'allArrays' => NULL,
+           'keyTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'version_id',
+               'isClassString' => false,
+            )),
+            1 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 0,
+            )),
+            2 => 
+            PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+               'value' => 'name',
+               'isClassString' => false,
+            )),
+            3 => 
+            PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+               'value' => 1,
+            )),
+          ),
+           'valueTypes' => 
+          array (
+            0 => 
+            PHPStan\Type\IntegerRangeType::__set_state(array(
+               'min' => -2147483648,
+               'max' => 2147483647,
+            )),
+            1 => 
+            PHPStan\Type\IntegerRangeType::__set_state(array(
+               'min' => -2147483648,
+               'max' => 2147483647,
+            )),
+            2 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+            3 => 
+            PHPStan\Type\StringType::__set_state(array(
+            )),
+          ),
+           'nextAutoIndex' => 2,
+           'optionalKeys' => 
+          array (
+          ),
+           'keyType' => 
+          PHPStan\Type\UnionType::__set_state(array(
+             'types' => 
+            array (
+              0 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 0,
+              )),
+              1 => 
+              PHPStan\Type\Constant\ConstantIntegerType::__set_state(array(
+                 'value' => 1,
+              )),
+              2 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'name',
+                 'isClassString' => false,
+              )),
+              3 => 
+              PHPStan\Type\Constant\ConstantStringType::__set_state(array(
+                 'value' => 'version_id',
+                 'isClassString' => false,
+              )),
+            ),
+          )),
+           'itemType' => 
+          PHPStan\Type\UnionType::__set_state(array(
+             'types' => 
+            array (
+              0 => 
+              PHPStan\Type\IntegerRangeType::__set_state(array(
+                 'min' => -2147483648,
+                 'max' => 2147483647,
+              )),
+              1 => 
+              PHPStan\Type\StringType::__set_state(array(
+              )),
+            ),
+          )),
+        )),
+      ),
+    ),
+  ),
+);
